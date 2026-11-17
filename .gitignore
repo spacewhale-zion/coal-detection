@@ -1,0 +1,19 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Local editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary downloaded or extracted data
+*.tmp
+*.temp
+temp/
+tmp/
