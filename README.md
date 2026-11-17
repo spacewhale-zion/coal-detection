@@ -57,6 +57,16 @@ python -m src.models.inference path\to\spectra.npy --output predictions.csv
 
 The input must contain either one spectrum shaped `(1500,)` or multiple spectra shaped `(samples, 1500)`. The output contains the predicted label, class name, and SVM decision score.
 
+## Project Showcase
+
+The static project showcase is in `web/`. From the project root, run:
+
+```powershell
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000/web/`.
+
 
 ## Evaluation Note
 

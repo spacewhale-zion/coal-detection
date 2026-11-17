@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coal detection from near-infrared spectroscopy: pipeline, validation, and model results.">
+  <title>Coal Detection | NIR Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Coal Detection home">
+      <span class="brand-mark">CD</span>
+      <span>Coal Detection<span class="brand-dot">.</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#pipeline">Pipeline</a>
+      <a href="#results">Results</a>
+      <a href="#evidence">Evidence</a>
+    </nav>
+    <a class="source-link" href="https://zenodo.org/records/11137126" target="_blank" rel="noreferrer">Dataset source <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">NIR SPECTROSCOPY / MODEL STUDY</p>
+        <h1>Reading the difference between coal and rock.</h1>
+        <p class="hero-text">A material-aware classification study built from 10,496 near-infrared spectra across coal and coal-measure rocks.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#results">See the results <span aria-hidden="true">↓</span></a>
+          <span class="hero-note"><span class="pulse-dot"></span> 24 material groups</span>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-1" aria-label="Coal and non-coal spectral comparison">
+        <div class="visual-label">SPECTRAL FIELD NOTE / 01</div>
+        <img src="../results/figures/lignite_vs_argillaceous_limestone_raw.png" alt="Project-generated comparison of lignite coal and argillaceous limestone spectra">
+        <div class="visual-caption"><span>01</span> Raw spectra: lignite coal grade 2 vs argillaceous limestone 2</div>
+      </div>
+    </section>
+
+    <section class="stats-band">
+      <div class="section-wrap stats-grid">
+        <div class="stat"><strong>10,496</strong><span>measured spectra</span></div>
+        <div class="stat"><strong>1,500</strong><span>wavelength features</span></div>
+        <div class="stat"><strong>1000–2499</strong><span>nanometres</span></div>
+        <div class="stat"><strong>24</strong><span>material categories</span></div>
+      </div>
+    </section>
+
+    <section class="section-wrap intro-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">THE QUESTION</p>
+        <h2>Can a spectrum carry enough evidence to identify coal?</h2>
+      </div>
+      <div class="intro-grid">
+        <p class="large-copy reveal">Each sample is a one-dimensional fingerprint: intensity measured across the near-infrared range. The task is binary, but the geology is not.</p>
+        <div class="annotation reveal delay-1"><span class="annotation-number">01</span><p>The model must separate coal from shale, sandstone, limestone, siltstone, and clay while handling spectra from materials it has not seen before.</p></div>
+      </div>
+    </section>
+
+    <section class="pipeline-section" id="pipeline">
+      <div class="section-wrap">
+        <div class="section-heading light reveal">
+          <p class="eyebrow">SELECTED PIPELINE</p>
+          <h2>From raw signal to a decision.</h2>
+        </div>
+        <div class="pipeline" aria-label="Model pipeline">
+          <div class="pipeline-step reveal"><span>01</span><strong>Raw spectrum</strong><small>1,500 wavelength values</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-step reveal delay-1"><span>02</span><strong>StandardScaler</strong><small>Training statistics only</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-step reveal delay-2"><span>03</span><strong>PCA · 2D</strong><small>99.472% variance retained</small></div>
+          <div class="pipeline-arrow" aria-hidden="true">→</div>
+          <div class="pipeline-step pipeline-final reveal delay-3"><span>04</span><strong>RBF SVM</strong><small>Coal / Non-Coal</small></div>
+        </div>
+        <p class="pipeline-footnote">The selected model was chosen for stability across material-grouped validation, not from a random spectrum split.</p>
+      </div>
+    </section>
+
+    <section class="section-wrap validation-section">
+      <div class="validation-copy reveal">
+        <p class="eyebrow">THE GUARDRAIL</p>
+        <h2>Testing the material, not memorising the sample.</h2>
+        <p>Related spectra from one material stay together. The development set contains 19 materials; the holdout contains 5 completely different materials.</p>
+      </div>
+      <div class="split-visual reveal delay-1">
+        <div class="split-column"><span class="split-kicker">DEVELOPMENT</span><strong>8,142</strong><small>19 materials</small><div class="split-bar"><i style="width:51.3%"></i><i style="width:48.7%"></i></div><small>4,180 coal / 3,962 non-coal</small></div>
+        <div class="split-divider"><span>0</span><small>overlap</small></div>
+        <div class="split-column holdout"><span class="split-kicker">HOLDOUT</span><strong>2,354</strong><small>5 unseen materials</small><div class="split-bar"><i style="width:35.5%"></i><i style="width:64.5%"></i></div><small>836 coal / 1,518 non-coal</small></div>
+      </div>
+    </section>
+
+    <section class="results-section" id="results">
+      <div class="section-wrap">
+        <div class="results-header reveal">
+          <div><p class="eyebrow">MODEL CHECK</p><h2>Stability over spectacle.</h2></div>
+          <p class="results-note">Repeated, material-grouped validation<br>3 seeds × 5 folds</p>
+        </div>
+        <div class="model-layout">
+          <div class="model-list reveal" role="tablist" aria-label="Model comparison">
+            <button class="model-tab active" data-model="svm" role="tab" aria-selected="true"><span>SVM</span><em>Primary</em></button>
+            <button class="model-tab" data-model="xgboost" role="tab" aria-selected="false"><span>XGBoost</span><em>Close second</em></button>
+            <button class="model-tab" data-model="pls" role="tab" aria-selected="false"><span>PLS-DA</span><em>High recall</em></button>
+            <button class="model-tab" data-model="forest" role="tab" aria-selected="false"><span>Random Forest</span><em>Benchmark</em></button>
+            <button class="model-tab" data-model="cnn" role="tab" aria-selected="false"><span>1D CNN</span><em>Not competitive</em></button>
+          </div>
+          <div class="model-detail reveal delay-1" role="tabpanel">
+            <div class="detail-top"><span class="detail-label" id="detail-label">SVM / REPEATED CV</span><span class="detail-rank" id="detail-rank">01</span></div>
+            <h3 id="detail-title">The most stable overall pipeline.</h3>
+            <p id="detail-copy">The SVM balances accuracy, recall, and consistency across unseen material groups.</p>
+            <div class="metric-bars">
+              <div class="bar-row"><span>Accuracy</span><div class="bar-track"><i id="bar-accuracy" style="width:93.6%"></i></div><strong id="metric-accuracy">93.60%</strong></div>
+              <div class="bar-row"><span>F1 score</span><div class="bar-track"><i id="bar-f1" style="width:93.4%"></i></div><strong id="metric-f1">93.40%</strong></div>
+              <div class="bar-row"><span>Coal recall</span><div class="bar-track"><i id="bar-recall" style="width:92.82%"></i></div><strong id="metric-recall">92.82%</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="table-wrap reveal">
+          <table><thead><tr><th>Model</th><th>Mean accuracy</th><th>Mean F1</th><th>Coal recall</th></tr></thead><tbody>
+            <tr class="selected-row"><td>SVM <span class="row-tag">selected</span></td><td>93.60%</td><td>93.40%</td><td>92.82%</td></tr>
+            <tr><td>XGBoost</td><td>93.25%</td><td>93.14%</td><td>93.33%</td></tr>
+            <tr><td>Random Forest</td><td>92.84%</td><td>92.36%</td><td>91.90%</td></tr>
+            <tr><td>PLS-DA</td><td>82.11%</td><td>85.37%</td><td>99.04%</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="holdout-section">
+      <div class="section-wrap holdout-grid">
+        <div class="holdout-copy reveal"><p class="eyebrow">HOLDOUT SNAPSHOT</p><h2>When coal is missed, the cost is visible.</h2><p>The original holdout comparison shows the selected SVM making 91 false-negative coal decisions and only 7 false-positive decisions.</p><a class="text-link" href="../results/metrics/final_test_metrics.json" target="_blank">Open saved metrics <span>↗</span></a></div>
+        <div class="confusion reveal delay-1"><div class="confusion-corner"></div><div class="axis-label top-axis">PREDICTED</div><div class="axis-label side-axis">ACTUAL</div><div class="confusion-head"><span>Non-Coal</span><span>Coal</span></div><div class="confusion-row"><strong>Non-Coal</strong><b class="good">1,511</b><b class="warn">7</b></div><div class="confusion-row"><strong>Coal</strong><b class="warn">91</b><b class="good">745</b></div><div class="confusion-key"><span><i class="dot good-dot"></i>correct</span><span><i class="dot warn-dot"></i>error</span></div></div>
+      </div>
+    </section>
+
+    <section class="evidence-section" id="evidence">
+      <div class="section-wrap">
+        <div class="results-header reveal"><div><p class="eyebrow">PROJECT EVIDENCE</p><h2>What the spectra actually show.</h2></div><p class="results-note">Generated by the project<br>no synthetic plots</p></div>
+        <div class="gallery-grid">
+          <figure class="evidence-large reveal"><img src="../results/figures/pca_components_vs_accuracy.png" alt="Project-generated plot of PCA components versus SVM accuracy"><figcaption><span>FIG. 01</span> PCA components vs SVM accuracy</figcaption></figure>
+          <figure class="reveal delay-1"><img src="../results/figures/pca_cumulative_variance.png" alt="Project-generated cumulative PCA variance plot"><figcaption><span>FIG. 02</span> Cumulative explained variance</figcaption></figure>
+          <figure class="reveal delay-2"><img src="../results/figures/difficult_materials_comparison.png" alt="Project-generated comparison of difficult material performance"><figcaption><span>FIG. 03</span> Difficult material comparison</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing section-wrap">
+      <p class="eyebrow">THE TAKEAWAY</p>
+      <h2>A careful split made the result more useful.</h2>
+      <p>Material-aware validation makes the challenge visible: the model is promising, but broader external spectra are still needed before claiming industrial readiness.</p>
+      <div class="closing-line"><span>Coal / Non-Coal</span><span>·</span><span>NIR, not hyperspectral cubes</span><span>·</span><span>Independent validation next</span></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="section-wrap"><span>COAL DETECTION / NIR STUDY</span><span>Built from the project record</span><a href="https://github.com/spacewhale-zion/coal-detection" target="_blank" rel="noreferrer">GitHub ↗</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
