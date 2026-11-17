@@ -1,0 +1,37 @@
+{
+    "seeds": [
+        42,
+        123,
+        2024
+    ],
+    "n_splits": 5,
+    "pls_components": 2,
+    "svm_pca_components": 2,
+    "svm_C": 1,
+    "best_oof_pls_threshold_by_f1": 0.6,
+    "best_oof_pls_f1": 0.9302073241619842,
+    "stability_summary": [
+        {
+            "model": "pls_da",
+            "accuracy_mean": 0.8211237541765724,
+            "accuracy_std": 0.10855417025376475,
+            "precision_mean": 0.7596106656285467,
+            "precision_std": 0.13341020048203756,
+            "recall_mean": 0.9903508771929824,
+            "recall_std": 0.009115010442532425,
+            "f1_mean": 0.8537396865894744,
+            "f1_std": 0.08246812160606179
+        },
+        {
+            "model": "svm",
+            "accuracy_mean": 0.9360480293715452,
+            "accuracy_std": 0.05424793220551778,
+            "precision_mean": 0.9451508760484468,
+            "precision_std": 0.05266372329599188,
+            "recall_mean": 0.9282296650717703,
+            "recall_std": 0.09249944501383396,
+            "f1_mean": 0.9340455123267116,
+            "f1_std": 0.060609731219993836
+        }
+    ]
+}

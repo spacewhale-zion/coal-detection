@@ -1,0 +1,204 @@
+{
+    "seeds": [
+        42,
+        123,
+        2024
+    ],
+    "n_splits": 5,
+    "summary": [
+        {
+            "model": "pls_da",
+            "accuracy_mean": 0.8211237541765724,
+            "accuracy_std": 0.10855417025376475,
+            "precision_mean": 0.7596106656285467,
+            "precision_std": 0.13341020048203756,
+            "recall_mean": 0.9903508771929824,
+            "recall_std": 0.009115010442532425,
+            "f1_mean": 0.8537396865894744,
+            "f1_std": 0.08246812160606179
+        },
+        {
+            "model": "random_forest",
+            "accuracy_mean": 0.9284106466392941,
+            "accuracy_std": 0.07799153908019958,
+            "precision_mean": 0.9396029291988526,
+            "precision_std": 0.07223689173167938,
+            "recall_mean": 0.9189792663476873,
+            "recall_std": 0.1324448506319279,
+            "f1_mean": 0.923640342394198,
+            "f1_std": 0.09207099271852451
+        },
+        {
+            "model": "svm",
+            "accuracy_mean": 0.9360480293715452,
+            "accuracy_std": 0.05424793220551778,
+            "precision_mean": 0.9451508760484468,
+            "precision_std": 0.05266372329599188,
+            "recall_mean": 0.9282296650717703,
+            "recall_std": 0.09249944501383396,
+            "f1_mean": 0.9340455123267116,
+            "f1_std": 0.060609731219993836
+        },
+        {
+            "model": "xgboost",
+            "accuracy_mean": 0.9325086770630026,
+            "accuracy_std": 0.05828184240296066,
+            "precision_mean": 0.9358160206346009,
+            "precision_std": 0.06617563121361,
+            "recall_mean": 0.9332535885167464,
+            "recall_std": 0.09316682369220337,
+            "f1_mean": 0.9313957264836853,
+            "f1_std": 0.06322729784893394
+        }
+    ],
+    "worst_materials_by_model": {
+        "pls_da": [
+            {
+                "model": "pls_da",
+                "material": "Black shale 1",
+                "samples": 1026,
+                "accuracy": 0.15009746588693956,
+                "errors": 872
+            },
+            {
+                "model": "pls_da",
+                "material": "Carbonaceous shale",
+                "samples": 1254,
+                "accuracy": 0.23205741626794257,
+                "errors": 963
+            },
+            {
+                "model": "pls_da",
+                "material": "Siltstone 2",
+                "samples": 1254,
+                "accuracy": 0.39872408293460926,
+                "errors": 754
+            },
+            {
+                "model": "pls_da",
+                "material": "Arenaceous shale 1",
+                "samples": 1026,
+                "accuracy": 0.4171539961013645,
+                "errors": 598
+            },
+            {
+                "model": "pls_da",
+                "material": "Black shale 2",
+                "samples": 1254,
+                "accuracy": 0.45454545454545453,
+                "errors": 684
+            }
+        ],
+        "random_forest": [
+            {
+                "model": "random_forest",
+                "material": "Lignite coal grade 2",
+                "samples": 1254,
+                "accuracy": 0.3660287081339713,
+                "errors": 795
+            },
+            {
+                "model": "random_forest",
+                "material": "Carbonaceous shale",
+                "samples": 1254,
+                "accuracy": 0.7240829346092504,
+                "errors": 346
+            },
+            {
+                "model": "random_forest",
+                "material": "Black shale 2",
+                "samples": 1254,
+                "accuracy": 0.8748006379585327,
+                "errors": 157
+            },
+            {
+                "model": "random_forest",
+                "material": "Black shale 1",
+                "samples": 1026,
+                "accuracy": 0.8810916179337231,
+                "errors": 122
+            },
+            {
+                "model": "random_forest",
+                "material": "Lean coal",
+                "samples": 1254,
+                "accuracy": 0.9178628389154705,
+                "errors": 103
+            }
+        ],
+        "svm": [
+            {
+                "model": "svm",
+                "material": "Lignite coal grade 2",
+                "samples": 1254,
+                "accuracy": 0.511164274322169,
+                "errors": 613
+            },
+            {
+                "model": "svm",
+                "material": "Carbonaceous shale",
+                "samples": 1254,
+                "accuracy": 0.6842105263157895,
+                "errors": 396
+            },
+            {
+                "model": "svm",
+                "material": "Black shale 1",
+                "samples": 1026,
+                "accuracy": 0.8996101364522417,
+                "errors": 103
+            },
+            {
+                "model": "svm",
+                "material": "Siltstone 2",
+                "samples": 1254,
+                "accuracy": 0.9314194577352473,
+                "errors": 86
+            },
+            {
+                "model": "svm",
+                "material": "Arenaceous shale 1",
+                "samples": 1026,
+                "accuracy": 0.949317738791423,
+                "errors": 52
+            }
+        ],
+        "xgboost": [
+            {
+                "model": "xgboost",
+                "material": "Lignite coal grade 2",
+                "samples": 1254,
+                "accuracy": 0.5159489633173844,
+                "errors": 607
+            },
+            {
+                "model": "xgboost",
+                "material": "Carbonaceous shale",
+                "samples": 1254,
+                "accuracy": 0.6291866028708134,
+                "errors": 465
+            },
+            {
+                "model": "xgboost",
+                "material": "Black shale 1",
+                "samples": 1026,
+                "accuracy": 0.8284600389863548,
+                "errors": 176
+            },
+            {
+                "model": "xgboost",
+                "material": "Arenaceous shale 1",
+                "samples": 1026,
+                "accuracy": 0.9015594541910331,
+                "errors": 101
+            },
+            {
+                "model": "xgboost",
+                "material": "Anthracite coal grade 2",
+                "samples": 1254,
+                "accuracy": 0.9617224880382775,
+                "errors": 48
+            }
+        ]
+    }
+}

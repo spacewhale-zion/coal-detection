@@ -1,0 +1,77 @@
+model,material,samples,accuracy,errors
+pls_da,0.3 coking coal,1254,0.9952153110047847,6
+pls_da,Anthracite coal grade 1,1254,0.9952153110047847,6
+pls_da,Anthracite coal grade 2,1254,0.9936204146730463,8
+pls_da,Arenaceous shale 1,1026,0.4171539961013645,598
+pls_da,Arenaceous shale 2,1320,0.9121212121212121,116
+pls_da,Argillaceous limestone 2,1749,0.7987421383647799,352
+pls_da,Black shale 1,1026,0.15009746588693956,872
+pls_da,Black shale 2,1254,0.45454545454545453,684
+pls_da,Carbonaceous shale,1254,0.23205741626794257,963
+pls_da,Clay,1749,0.9725557461406518,48
+pls_da,Coking coal,1254,1.0,0
+pls_da,Fat coal,1254,0.9968102073365231,4
+pls_da,Fine-grained sandstone,1254,1.0,0
+pls_da,Gas coal,1254,0.9984051036682615,2
+pls_da,Lean coal,1254,0.9880382775119617,15
+pls_da,Lean-thin coal,1254,0.9880382775119617,15
+pls_da,Lignite coal grade 2,1254,0.9688995215311005,39
+pls_da,Siltstone 2,1254,0.39872408293460926,754
+pls_da,Thin coal,1254,0.9792663476874003,26
+random_forest,0.3 coking coal,1254,0.9896331738437002,13
+random_forest,Anthracite coal grade 1,1254,0.9904306220095693,12
+random_forest,Anthracite coal grade 2,1254,0.9728867623604466,34
+random_forest,Arenaceous shale 1,1026,0.9727095516569201,28
+random_forest,Arenaceous shale 2,1320,0.9962121212121212,5
+random_forest,Argillaceous limestone 2,1749,0.9331046312178388,117
+random_forest,Black shale 1,1026,0.8810916179337231,122
+random_forest,Black shale 2,1254,0.8748006379585327,157
+random_forest,Carbonaceous shale,1254,0.7240829346092504,346
+random_forest,Clay,1749,0.9948542024013722,9
+random_forest,Coking coal,1254,1.0,0
+random_forest,Fat coal,1254,0.9936204146730463,8
+random_forest,Fine-grained sandstone,1254,1.0,0
+random_forest,Gas coal,1254,0.9976076555023924,3
+random_forest,Lean coal,1254,0.9178628389154705,103
+random_forest,Lean-thin coal,1254,0.9776714513556619,28
+random_forest,Lignite coal grade 2,1254,0.3660287081339713,795
+random_forest,Siltstone 2,1254,1.0,0
+random_forest,Thin coal,1254,0.9840510366826156,20
+svm,0.3 coking coal,1254,0.9848484848484849,19
+svm,Anthracite coal grade 1,1254,0.9832535885167464,21
+svm,Anthracite coal grade 2,1254,0.9553429027113237,56
+svm,Arenaceous shale 1,1026,0.949317738791423,52
+svm,Arenaceous shale 2,1320,0.9931818181818182,9
+svm,Argillaceous limestone 2,1749,0.9788450543167524,37
+svm,Black shale 1,1026,0.8996101364522417,103
+svm,Black shale 2,1254,0.992822966507177,9
+svm,Carbonaceous shale,1254,0.6842105263157895,396
+svm,Clay,1749,0.9948542024013722,9
+svm,Coking coal,1254,1.0,0
+svm,Fat coal,1254,0.9840510366826156,20
+svm,Fine-grained sandstone,1254,1.0,0
+svm,Gas coal,1254,0.9920255183413078,10
+svm,Lean coal,1254,0.9545454545454546,57
+svm,Lean-thin coal,1254,0.9545454545454546,57
+svm,Lignite coal grade 2,1254,0.511164274322169,613
+svm,Siltstone 2,1254,0.9314194577352473,86
+svm,Thin coal,1254,0.9625199362041468,47
+xgboost,0.3 coking coal,1254,0.9864433811802232,17
+xgboost,Anthracite coal grade 1,1254,0.9872408293460925,16
+xgboost,Anthracite coal grade 2,1254,0.9617224880382775,48
+xgboost,Arenaceous shale 1,1026,0.9015594541910331,101
+xgboost,Arenaceous shale 2,1320,0.9901515151515151,13
+xgboost,Argillaceous limestone 2,1749,0.9656946826758147,60
+xgboost,Black shale 1,1026,0.8284600389863548,176
+xgboost,Black shale 2,1254,0.9800637958532695,25
+xgboost,Carbonaceous shale,1254,0.6291866028708134,465
+xgboost,Clay,1749,0.9937106918238994,11
+xgboost,Coking coal,1254,1.0,0
+xgboost,Fat coal,1254,0.9872408293460925,16
+xgboost,Fine-grained sandstone,1254,1.0,0
+xgboost,Gas coal,1254,0.9920255183413078,10
+xgboost,Lean coal,1254,0.9641148325358851,45
+xgboost,Lean-thin coal,1254,0.970494417862839,37
+xgboost,Lignite coal grade 2,1254,0.5159489633173844,607
+xgboost,Siltstone 2,1254,0.9968102073365231,4
+xgboost,Thin coal,1254,0.967304625199362,41

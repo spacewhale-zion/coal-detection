@@ -1,0 +1,20 @@
+{
+    "preprocessing": {
+        "standard_scaler": true,
+        "snv": false,
+        "savitzky_golay": false
+    },
+    "pca": {
+        "n_components": 2
+    },
+    "model": {
+        "type": "SVC",
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": "scale"
+    },
+    "training_samples": 8142,
+    "original_features": 1500,
+    "pca_features": 2,
+    "explained_variance": 0.9947202801704407
+}
