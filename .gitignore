@@ -17,3 +17,6 @@ Thumbs.db
 *.temp
 temp/
 tmp/
+
+# Dataset is downloaded separately from the source listed in README.md
+data/

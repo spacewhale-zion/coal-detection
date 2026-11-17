@@ -2,6 +2,14 @@
 
 This project classifies near-infrared (NIR) spectra as coal (`1`) or non-coal (`0`). It is not a pixel-level hyperspectral image classifier. The dataset contains 10,496 spectra, 1,500 wavelength features per spectrum, and 24 material groups across 1000-2499 nm.
 
+## Dataset
+
+The dataset is not stored in this repository. Download it from the official source:
+
+https://zenodo.org/records/11137126
+
+After downloading, place the raw files under `data/raw/Spectroscopy dataset/` and run the preparation scripts described below.
+
 ## Reproducibility
 
 Install dependencies from the project root:
